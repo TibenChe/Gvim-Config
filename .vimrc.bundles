@@ -1,0 +1,53 @@
+if &compatible
+  set nocompatible
+end
+
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+
+
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'bling/vim-airline'
+"Plugin 'majutsushi/tagbar'
+Plugin 'vhda/verilog_systemverilog.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/syntastic'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" NERDTree config
+let NERDTreeShowLineNumbers=1
+"autocmd vimenter * NERDTree
+map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+
+
+ " tagbar config
+" nmap <F3> :TagbarToggle<CR>  
+"let g:tagbar_ctags_bin='/usr/bin/ctags'  
+""let g:tagbar_width=30　
+"autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.sv,*.v call tagbar#autoopen()　
+
+"syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_w = 1
