@@ -8,7 +8,7 @@ if has('gui_running')
 else
     set background=light
 endif
-"set background=dark
+set background=dark
 set number
 set smartindent 
 set shiftwidth=4
@@ -18,6 +18,6 @@ set expandtab
 "set noet
 set hlsearch
 
-"if filereadable(expand("~/.vimrc.bundles"))
-"  source ~/.vimrc.bundles
-"endif
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
